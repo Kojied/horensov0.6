@@ -3,10 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const { importCSV } = require('./utils/csvImporter');
+const lessonsRouter = require('./routes/lessons');
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/lessons', lessonsRouter);
 
 // Define a simple test route
 app.get('/', (req, res) => {
