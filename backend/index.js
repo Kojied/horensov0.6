@@ -7,6 +7,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+const lessonsRouter = require('./routes/lessons');
+app.use('/lessons', lessonsRouter);
+
 // Define a simple test route
 app.get('/', (req, res) => {
   res.send("Hello, TalentLMS!");
